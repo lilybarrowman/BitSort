@@ -9,6 +9,13 @@
 
 #include "BitSort.h"
 
+namespace BitSort {
+  template<>
+  uint8_t mostSignificantBitIndex() {
+    return 7;
+  }
+}
+
 void printVec(std::vector<uint8_t> const& vec) {
   for (auto i : vec) {
     std::cout << (int) i << " ";
@@ -19,7 +26,7 @@ void printVec(std::vector<uint8_t> const& vec) {
 int main() {
   auto before = std::chrono::system_clock::now();
 
-  std::vector<uint8_t> vals(1'000'000);//{242, 205, 197, 5, 125, 92, 113, 159, 144, 1};
+  std::vector<uint8_t> vals(1'000'000);
   
   std::random_device rnd_device;
   std::mt19937 mersenne_engine(rnd_device());
@@ -37,7 +44,6 @@ int main() {
   after = std::chrono::system_clock::now();
   std::cout << "BitSort took " << std::chrono::duration_cast<std::chrono::milliseconds>(after - before).count() << "ms\n";
   //printVec(bitSorted);
-
 
   before = std::chrono::system_clock::now();
   std::vector<uint8_t> stdSorted(vals);
