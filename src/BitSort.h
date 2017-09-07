@@ -1,9 +1,9 @@
+#ifndef BITSORT_H
+#define BITSORT_H
+
 #include <cstdint>
 #include <iostream>
 #include <vector>
-
-#ifndef BITSORT_H
-#define BITSORT_H
 
 namespace BitSort {
   template<typename T>
